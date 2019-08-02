@@ -8,28 +8,36 @@ NEW DATA - APTOS 2019 Blindness Detection https://www.kaggle.com/c/aptos2019-bli
 
 # EXP_725
 I am gonna first pretrain model on OLD DATA and than fine tune on NEW DATA with 5-fold cross-validaion
+Important transformation here is zoom crop to the center from (0.9 to 1.4)
 
 ## EXP_725.ipynb
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
-BS:              64
+BS:              128
 SZ:              224
-VALID:           Random split(0.2)
-TFMS:            [flip(p=0.5), max_rotate(-10, 10), max_zoom(1.1), max_lighting(0.2), max_wrap(0.2), p_lighting(0.75)]
+VALID:           NEW DATA
+TFMS:            [flip(p=0.5), 
+                  flip_vert(True), 
+                  max_rotate(360), 
+                  max_lighting(0.1),
+                  max_zoom(1.3),
+                  p_lighting(0.5), 
+                  zoom_crop(scale=(0.9, 1.4), do_rand=True))]
+
 NORMALIZE:       IMAGENET
 
-TRAINING:        fit_one_cycle(3,  1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-FRZ
-                 fit_one_cycle(15, 1e-3/2, wd=1e-2, div_factor=10, pct_start=0.3)-UNF
-                 fit_one_cycle(15, 1e-4, wd=1e-2, div_factor=10, pct_start=0.3)  -UNF
+TRAINING:        fit_one_cycle(10, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
+                 fit_one_cycle(5,  1e-3/5, wd=1e-2, div_factor=10, pct_start=0.3)-UNF
+                 fit_one_cycle(30, 1e-3/8, wd=1e-2, div_factor=10, pct_start=0.3)-UNF
 
-MODEL WEIGHTS:   EXP_00_PHASE_3_UNFREEZE
-MODEL TRN_LOSS:  1.510587
-MODEL VAL_LOSS:  3.794280
-MODEL ACCURACY:  29.837053
-LB SCORE:        0.137
-SUBMISSION FLN:  RGB_EXP_0.csv
+MODEL WEIGHTS:   NB_EXP_725_UNFREEZE_P3
+MODEL TRN_LOSS:  0.305515
+MODEL VAL_LOSS:  0.342098
+QUADR KAPPA:     0.887489
+LB SCORE:        0.725
+SUBMISSION FLN:  EXP_725(version 11/14)
 ```
-Comments: huge gap between trainign and valid, try to StratifiedKFold split
+Comments: Pretrained Model trained on OLD DATA gives pretty good results now using best weight to fine tune new data
 
 ## EXP_0_1.ipynb
