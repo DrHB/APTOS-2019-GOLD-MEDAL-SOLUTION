@@ -1,1 +1,1 @@
-# -Kaggle---APTOS-2019-Blindness-Detection
+# Kaggle-APTOS-2019-Blindness-Detection
