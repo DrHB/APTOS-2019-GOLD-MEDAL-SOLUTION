@@ -66,13 +66,13 @@ Summary:
 
 | Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
 | ------------- | ------------- | ---------| --------| --------|
-| EXP_725-CV_0.ipynb | 0.303028 | 0.198670 | 0.924300 | NB_EXP_725_CV_0_UNFREEZE_P1.pth | 
-| EXP_725-CV_1.ipynb | 0.259711 | 0.261448 | 0.909077 | NB_EXP_725_CV_1_UNFREEZE_P1.pth | 
-| EXP_725-CV_2.ipynb | 0.318001 | 0.231378 | 0.914873 | NB_EXP_725_CV_2_UNFREEZE_P1.pth | 
-| EXP_725-CV_3.ipynb | 0.201959 | 0.182800 | 0.929271 | NB_EXP_725_CV_3_UNFREEZE_P1.pth | 
-| EXP_725-CV_4.ipynb | 0.195760 | 0.204893 | 0.937953 | NB_EXP_725_CV_4_UNFREEZE_P1.pth | 
+| EXP_725-CV_0.ipynb | 0.303028 | 0.198670 | 0.924300 | NB_EXP_725_CV_0_UNFREEZE_P1| 
+| EXP_725-CV_1.ipynb | 0.259711 | 0.261448 | 0.909077 | NB_EXP_725_CV_1_UNFREEZE_P1| 
+| EXP_725-CV_2.ipynb | 0.318001 | 0.231378 | 0.914873 | NB_EXP_725_CV_2_UNFREEZE_P1| 
+| EXP_725-CV_3.ipynb | 0.201959 | 0.182800 | 0.929271 | NB_EXP_725_CV_3_UNFREEZE_P1| 
+| EXP_725-CV_4.ipynb | 0.195760 | 0.204893 | 0.937953 | NB_EXP_725_CV_4_UNFREEZE_P1| 
 
-Submission
+Submission (Average all the predictions)
 ```
 LB SCORE:        0.808
 SUBMISSION FLN:  EXP_725(version 12/14)
