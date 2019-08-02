@@ -3,7 +3,7 @@
 
 
 ##  SETUP
-OLD DATA - Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection) \n
+OLD DATA - Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection) <br/>
 NEW DATA - APTOS 2019 Blindness Detection https://www.kaggle.com/c/aptos2019-blindness-detection/data
 
 # EXP 725
