@@ -24,13 +24,10 @@ TFMS:            [flip(p=0.5),
                   max_zoom(1.3),
                   p_lighting(0.5), 
                   zoom_crop(scale=(0.9, 1.4), do_rand=True))]
-
 NORMALIZE:       IMAGENET
-
 TRAINING:        fit_one_cycle(10, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
                  fit_one_cycle(5,  1e-3/5, wd=1e-2, div_factor=10, pct_start=0.3)-UNF
                  fit_one_cycle(30, 1e-3/8, wd=1e-2, div_factor=10, pct_start=0.3)-UNF
-
 MODEL WEIGHTS:   NB_EXP_725_UNFREEZE_P3
 MODEL TRN_LOSS:  0.305515
 MODEL VAL_LOSS:  0.342098
@@ -38,6 +35,25 @@ QUADR KAPPA:     0.887489
 LB SCORE:        0.725
 SUBMISSION FLN:  EXP_725(version 11/14)
 ```
-Comments: Pretrained Model trained on OLD DATA gives pretty good results now using best weight to fine tune new data
+Comments: Pretrained model trained just OLD DATA gives pretty good results. Now using best weight to fine tune new data
 
-## EXP_0_1.ipynb
+## [EXP_725-CV_0 - EXP_725-CV_5] .ipynb
+Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <\br>
+
+Set up for all CV experimetns: 
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              128
+SZ:              224
+VALID:           NEW DATA
+TFMS:            [flip(p=0.5), 
+                  flip_vert(True), 
+                  max_rotate(360), 
+                  max_lighting(0.1),
+                  max_zoom(1.3),
+                  p_lighting(0.5), 
+                  zoom_crop(scale=(0.9, 1.4), do_rand=True))]
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
+
