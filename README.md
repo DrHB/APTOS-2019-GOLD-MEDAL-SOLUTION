@@ -82,7 +82,7 @@ SUBMISSION FLN:  EXP_725(version 12/14)
 # EXP_725_352 (LB: TBD)
 Same as ``` EXP_725``` but increased image size to 352 and added more robust center zoom crop (1.1 - 1.45x). Trained using weights from ```EXP_725```, ``` NB_EXP_725_UNFREEZE_P3 ```
 
-## EXP_725.ipynb
+## EXP_725_352.ipynb
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
@@ -102,7 +102,7 @@ NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(5, 1e-3,    wd=1e-2, div_factor=10, pct_start=0.3)-UNF
                  fit_one_cycle(3, 1e-3/10, wd=1e-2, div_factor=25, pct_start=0.3)-UNF
 
-MODEL WEIGHTS:   NB_EXP_725_UNFREEZE_P3
+MODEL WEIGHTS:   NB_EXP_725_352_UNFREEZE_P2
 MODEL TRN_LOSS:  0.289148
 MODEL VAL_LOSS:  0.335972
 QUADR KAPPA:     0.893238
@@ -111,7 +111,7 @@ SUBMISSION FLN:  TBD
 ```
 Comments: Pretrained model on  ``` NB_EXP_725_UNFREEZE_P3 ``` with image siae ``` 224 ```, Increaseing image size to ``` 352``` and adding extra zoom helped with the validation loss. 
 
-## [EXP_725-CV_0 - EXP_725-CV_4].ipynb
+## [EXP_725_352-CV_0 - EXP_725_352-CV_4].ipynb
 Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <br/>
 
 Set up for all CV experimetns: 
