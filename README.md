@@ -79,7 +79,7 @@ SUBMISSION FLN:  EXP_725(version 12/14)
 ```
 
 
-# EXP_725_352 (LB: TBD)
+# EXP_725_352 (LB: 0.785)
 Same as ``` EXP_725``` but increased image size to 352 and added more robust center zoom crop (1.1 - 1.45x). Trained using weights from ```EXP_725```, ``` NB_EXP_725_UNFREEZE_P3 ```
 
 ### EXP_725_352.ipynb
@@ -146,7 +146,7 @@ Summary:
 
 Submission (Average all the predictions)
 ```
-LB SCORE:        TBD
-SUBMISSION FLN:  TBD
+LB SCORE:        0.785
+SUBMISSION FLN:  EXP_725_352(version 15/15)
 ```
 
