@@ -18,12 +18,13 @@ BS:              128
 SZ:              224
 VALID:           NEW DATA
 TFMS:            [flip(p=0.5), 
-                  flip_vert(True), 
-                  max_rotate(360), 
-                  max_lighting(0.1),
-                  max_zoom(1.3),
-                  p_lighting(0.5), 
-                  zoom_crop(scale=(0.9, 1.4), do_rand=True))]
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(0.9, 1.4), do_rand=True))]
+                 
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(10, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
                  fit_one_cycle(5,  1e-3/5, wd=1e-2, div_factor=10, pct_start=0.3)-UNF
@@ -48,12 +49,13 @@ BS:              128
 SZ:              224
 VALID:           NEW DATA
 TFMS:            [flip(p=0.5), 
-                  flip_vert(True), 
-                  max_rotate(360), 
-                  max_lighting(0.1),
-                  max_zoom(1.3),
-                  p_lighting(0.5), 
-                  zoom_crop(scale=(0.9, 1.4), do_rand=True))]
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(0.9, 1.4), do_rand=True))]
+                 
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
 ```
