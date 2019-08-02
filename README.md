@@ -56,4 +56,6 @@ TFMS:            [flip(p=0.5),
                   zoom_crop(scale=(0.9, 1.4), do_rand=True))]
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
+```
+
 
