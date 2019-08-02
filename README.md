@@ -6,7 +6,7 @@
 OLD DATA - Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection) <br/>
 NEW DATA - APTOS 2019 Blindness Detection https://www.kaggle.com/c/aptos2019-blindness-detection/data
 
-# EXP_725
+# EXP_725 (LB: 0.808)
 I am gonna first pretrain model on OLD DATA and than fine tune on NEW DATA with 5-fold cross-validaion
 Important transformation here is zoom crop to the center from (0.9 to 1.4)
 
@@ -62,6 +62,8 @@ NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
 ```
 
+Summary:
+
 | Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | 
 | ------------- | ------------- | ---------| --------|
 | EXP_725-CV_0 | 0.303028 | 0.198670 | 0.924300 | 
@@ -70,3 +72,8 @@ TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3
 | EXP_725-CV_3 | 0.201959 | 0.182800 | 0.929271 | 
 | EXP_725-CV_4 | 0.195760 | 0.204893 | 0.937953 | 
 
+Submission
+```
+LB SCORE:        0.808
+SUBMISSION FLN:  EXP_725(version 12/14)
+```
