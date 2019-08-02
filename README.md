@@ -17,6 +17,7 @@ NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           NEW DATA
+
 TFMS:            [flip(p=0.5), 
                  flip_vert(True), 
                  max_rotate(360), 
@@ -48,6 +49,7 @@ NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           NEW DATA
+
 TFMS:            [flip(p=0.5), 
                  flip_vert(True), 
                  max_rotate(360), 
