@@ -38,7 +38,7 @@ SUBMISSION FLN:  EXP_725(version 11/14)
 Comments: Pretrained model trained just OLD DATA gives pretty good results. Now using best weight to fine tune new data
 
 ## [EXP_725-CV_0 - EXP_725-CV_5] .ipynb
-Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <\br>
+Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <br/>
 
 Set up for all CV experimetns: 
 ```
