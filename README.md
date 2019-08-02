@@ -2,7 +2,7 @@
 
 
 
-##  SETUP
+###  SETUP
 OLD DATA - Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection) <br/>
 NEW DATA - APTOS 2019 Blindness Detection (https://www.kaggle.com/c/aptos2019-blindness-detection/data)
 
@@ -10,7 +10,7 @@ NEW DATA - APTOS 2019 Blindness Detection (https://www.kaggle.com/c/aptos2019-bl
 I am gonna first pretrain model on OLD DATA and than fine tune on NEW DATA with 5-fold cross-validaion
 Important transformation here is zoom crop to the center from (0.9 to 1.4)
 
-## EXP_725.ipynb
+### EXP_725.ipynb
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
@@ -39,7 +39,7 @@ SUBMISSION FLN:  EXP_725(version 11/14)
 ```
 Comments: Pretrained model trained just OLD DATA gives pretty good results. Now using best weight to fine tune new data
 
-## [EXP_725-CV_0 - EXP_725-CV_4].ipynb
+### [EXP_725-CV_0 - EXP_725-CV_4].ipynb
 Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <br/>
 
 Set up for all CV experimetns: 
@@ -82,7 +82,7 @@ SUBMISSION FLN:  EXP_725(version 12/14)
 # EXP_725_352 (LB: TBD)
 Same as ``` EXP_725``` but increased image size to 352 and added more robust center zoom crop (1.1 - 1.45x). Trained using weights from ```EXP_725```, ``` NB_EXP_725_UNFREEZE_P3 ```
 
-## EXP_725_352.ipynb
+### EXP_725_352.ipynb
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
@@ -111,7 +111,7 @@ SUBMISSION FLN:  TBD
 ```
 Comments: Pretrained model on  ``` NB_EXP_725_UNFREEZE_P3 ``` with image siae ``` 224 ```, Increaseing image size to ``` 352``` and adding extra zoom helped with the validation loss. 
 
-## [EXP_725_352-CV_0 - EXP_725_352-CV_4].ipynb
+### [EXP_725_352-CV_0 - EXP_725_352-CV_4].ipynb
 Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <br/>
 
 Set up for all CV experimetns: 
