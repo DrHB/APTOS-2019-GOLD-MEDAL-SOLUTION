@@ -39,7 +39,7 @@ SUBMISSION FLN:  EXP_725(version 11/14)
 ```
 Comments: Pretrained model trained just OLD DATA gives pretty good results. Now using best weight to fine tune new data
 
-## [EXP_725-CV_0 - EXP_725-CV_5] .ipynb
+## [EXP_725-CV_0 - EXP_725-CV_4].ipynb
 Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits. <br/>
 
 Set up for all CV experimetns: 
@@ -62,4 +62,11 @@ NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=10, pct_start=0.3)-UNF
 ```
 
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | 
+| ------------- | ------------- | ---------| --------|
+| EXP_725-CV_0 | 0.303028 | 0.198670 | 0.924300 | 
+| EXP_725-CV_1 | 0.259711 | 0.261448 | 0.909077 | 
+| EXP_725-CV_2 | 0.318001 | 0.231378 | 0.914873 | 
+| EXP_725-CV_3 | 0.201959 | 0.182800 | 0.929271 | 
+| EXP_725-CV_4 | 0.195760 | 0.204893 | 0.937953 | 
 
