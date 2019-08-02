@@ -9,10 +9,10 @@ NEW DATA - APTOS 2019 Blindness Detection https://www.kaggle.com/c/aptos2019-bli
 # EXP_725
 I am gonna first pretrain model on OLD DATA and than fine tune on NEW DATA with 5-fold cross-validaion
 
-## EXP_0.ipynb
+## EXP_725.ipynb
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1108
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
 BS:              64
 SZ:              224
 VALID:           Random split(0.2)
