@@ -4,7 +4,7 @@
 
 ##  SETUP
 OLD DATA - Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection) <br/>
-NEW DATA - APTOS 2019 Blindness Detection https://www.kaggle.com/c/aptos2019-blindness-detection/data
+NEW DATA - APTOS 2019 Blindness Detection (https://www.kaggle.com/c/aptos2019-blindness-detection/data)
 
 # EXP_725 (LB: 0.808)
 I am gonna first pretrain model on OLD DATA and than fine tune on NEW DATA with 5-fold cross-validaion
