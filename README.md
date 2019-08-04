@@ -157,7 +157,7 @@ Same as ``` EXP_725``` added more robust center zoom crop (1.02 - 1.35x). Traine
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
-BS:              56
+BS:              128
 SZ:              224
 VALID:           NEW DATA
 
