@@ -106,8 +106,8 @@ MODEL WEIGHTS:   NB_EXP_725_352_UNFREEZE_P2
 MODEL TRN_LOSS:  0.289148
 MODEL VAL_LOSS:  0.335972
 QUADR KAPPA:     0.893238
-LB SCORE:        TBD
-SUBMISSION FLN:  TBD
+LB SCORE:        0.727
+SUBMISSION FLN:  EXP_725_352(version 16/17)
 ```
 Comments: Pretrained model on  ``` NB_EXP_725_UNFREEZE_P3 ``` with image siae ``` 224 ```, Increaseing image size to ``` 352``` and adding extra zoom helped with the validation loss. 
 
@@ -150,3 +150,33 @@ LB SCORE:        0.785
 SUBMISSION FLN:  EXP_725_352(version 15/15)
 ```
 
+# EXP_730_BEN (LB: TBD)
+Same as ``` EXP_725``` added more robust center zoom crop (1.02 - 1.35x). Trained using weights from ```EXP_725```, ``` NB_EXP_725_UNFREEZE_P3```. Images this time were proces. with Ben Method. Old ben method was not taking in two condiseration image ratio when resizing, I have added function ```resize_to``` which preserves image ratio when resizing. For proceessing images I used notebook ``` BEN_PROCESS.ipynb ```
+
+### EXP_730.ipynb
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              56
+SZ:              224
+VALID:           NEW DATA
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.02, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(10, 1e-3,    wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+MODEL WEIGHTS:   NB_EXP_725_352_UNFREEZE_P2
+MODEL TRN_LOSS:  0.316414
+MODEL VAL_LOSS:  0.302961
+QUADR KAPPA:     0.896701
+LB SCORE:        
+SUBMISSION FLN: EXP_725_352(version 17/17)
+```
+Comments: Model trained using old data and weights from EXP_725, showed good training and loss. 
