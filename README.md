@@ -176,7 +176,7 @@ MODEL WEIGHTS:   NB_EXP_725_352_UNFREEZE_P2
 MODEL TRN_LOSS:  0.316414
 MODEL VAL_LOSS:  0.302961
 QUADR KAPPA:     0.896701
-LB SCORE:        
-SUBMISSION FLN: EXP_725_352(version 17/17)
+LB SCORE:        0.755
+SUBMISSION FLN:  EXP_725_352(version 17/17)
 ```
 Comments: Model trained using old data and weights from EXP_725, showed good training and loss. 
