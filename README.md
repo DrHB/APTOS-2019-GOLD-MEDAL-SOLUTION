@@ -48,7 +48,7 @@ MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
 BS:              128
 SZ:              224
-VALID:           NEW DATA
+VALID:           NEW DATA CV SPLIT
 
 TFMS:            [flip(p=0.5), 
                  flip_vert(True), 
@@ -120,7 +120,7 @@ MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
 BS:              56
 SZ:              352
-VALID:           NEW DATA
+VALID:           NEW DATA CV SPLIT
 
 TFMS:            [flip(p=0.5), 
                  flip_vert(True), 
@@ -150,7 +150,7 @@ LB SCORE:        0.785
 SUBMISSION FLN:  EXP_725_352(version 15/15)
 ```
 
-# EXP_730_BEN (LB: TBD)
+# EXP_730_BEN (LB: 0.804)
 Same as ``` EXP_725``` added more robust center zoom crop (1.02 - 1.35x). Trained using weights from ```EXP_725```, ``` NB_EXP_725_UNFREEZE_P3```. Images this time were proces. with Ben Method. Old ben method was not taking in two condiseration image ratio when resizing, I have added function ```resize_to``` which preserves image ratio when resizing. For proceessing images I used notebook ``` BEN_PROCESS.ipynb ```
 
 ### EXP_730.ipynb
@@ -180,3 +180,43 @@ LB SCORE:        0.755
 SUBMISSION FLN:  EXP_725_352(version 17/17)
 ```
 Comments: Model trained using old data and weights from EXP_725, showed good training and loss. 
+
+### [EXP_730-CV_0 - EXP_730-CV_4].ipynb
+Using weights ``` NB_EXP_730_UNFREEZE_P1 ```To train NEW DATA with 5 fold splits. <br/>
+
+Set up for all CV experimetns: 
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              56
+SZ:              352
+VALID:           NEW DATA CV SPLIT
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                  zoom_crop(scale=(1.01, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+```
+
+Summary:
+
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
+| ------------- | ------------- | ---------| --------| --------|
+| EXP_730-CV_0| 0.230880 | 0.214356 | 0.920836 | NB_EXP_730_CV_0_UNFREEZE_P1| 
+| EXP_730-CV_1| 0.298317 | 0.251441 | 0.918218 | NB_EXP_730_CV_1_UNFREEZE_P1| 
+| EXP_730-CV_2| 0.216604 | 0.299689 | 0.904481 | NB_EXP_730_CV_2_UNFREEZE_P1| 
+| EXP_730-CV_3| 0.178483 | 0.176829 | 0.932204 | NB_EXP_730_CV_3_UNFREEZE_P1| 
+| EXP_730-CV_4| 0.170133 | 0.235239 | 0.928617 | NB_EXP_730_CV_4_UNFREEZE_P1| 
+
+Submission (Average all the predictions)
+```
+LB SCORE:        0.804
+SUBMISSION FLN:  EXP_730_BEN(version 22/22)
+```
+
