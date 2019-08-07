@@ -219,4 +219,33 @@ Submission (Average all the predictions)
 LB SCORE:        0.804
 SUBMISSION FLN:  EXP_730_BEN(version 22/22)
 ```
+# EXP_730_352_BEN (LB: TBD)
+Same as ``` EXP_730_BEN``` added more robust center zoom crop (1.02 - 1.35x) and the image size increased to ```352```. Trained using weights from ```EXP_730_BEN```, ``` NB_EXP_730_UNFREEZE_P1```. 
 
+### EXP_730_352.ipynb
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              56
+SZ:              352
+VALID:           NEW DATA
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.02, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(5, 1e-3/2,    wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+MODEL WEIGHTS:   NB_EXP_725_352_UNFREEZE_P2
+MODEL TRN_LOSS:  0.224072
+MODEL VAL_LOSS:  0.342114
+QUADR KAPPA:     0.890448
+LB SCORE:        TBD
+SUBMISSION FLN:  TBD
+```
+Comments: This is trained mainly to use for transfer learning
