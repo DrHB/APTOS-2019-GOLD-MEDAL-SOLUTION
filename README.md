@@ -241,7 +241,7 @@ TFMS:            [flip(p=0.5),
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(5, 1e-3/2,    wd=1e-2, div_factor=25, pct_start=0.3)-UNF
 
-MODEL WEIGHTS:   NB_EXP_725_352_UNFREEZE_P2
+MODEL WEIGHTS:   NB_EXP_730_352_UNFREEZE_P1
 MODEL TRN_LOSS:  0.224072
 MODEL VAL_LOSS:  0.342114
 QUADR KAPPA:     0.890448
@@ -249,3 +249,75 @@ LB SCORE:        TBD
 SUBMISSION FLN:  TBD
 ```
 Comments: This is trained mainly to use for transfer learning
+
+
+
+# EXP_735 (LB: TBD)
+Training on old data with image size ```352```, I am using weitts for transfer learning from the notebook ```EXP_730_352```, ```NB_EXP_730_352_UNFREEZE_P1```. Image were first cropped to remove all the black background using script TBD.
+
+### EXP_735.ipynb
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              56
+SZ:              352
+VALID:           NEW DATA
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.02, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(10, 1e-3,    wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+MODEL WEIGHTS:   NB_EXP_735_UNFREEZE_P1
+MODEL TRN_LOSS:  0.233254
+MODEL VAL_LOSS:  0.332348
+QUADR KAPPA:     0.893338
+LB SCORE:        TBD
+SUBMISSION FLN:  TBD
+```
+Comments: Looks good move to cv
+
+### [EXP_730-CV_0 - EXP_730-CV_4].ipynb
+Using weights ``` NB_EXP_730_UNFREEZE_P1 ```To train NEW DATA with 5 fold splits. <br/>
+
+Set up for all CV experimetns: 
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              56
+SZ:              352
+VALID:           NEW DATA CV SPLIT
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                  zoom_crop(scale=(1.01, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(15, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+```
+
+Summary:
+
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
+| ------------- | ------------- | ---------| --------| --------|
+| EXP_735-CV_0| 0.250133 | 0.205121 | 0.920307 | NB_EXP_735_CV_0_UNFREEZE_P1| 
+| EXP_735-CV_1| 0.135174 | 0.211053 | 0.921838 | NB_EXP_735_CV_1_UNFREEZE_P1| 
+| EXP_735-CV_2| 0.230097 | 0.223343 | 0.915626 | NB_EXP_735_CV_2_UNFREEZE_P1| 
+| EXP_735-CV_3| 0.176270 | 0.170685 | 0.932106 | NB_EXP_735_CV_3_UNFREEZE_P1| 
+| EXP_735-CV_4| 0.146527 | 0.205450 | 0.931362 | NB_EXP_735_CV_4_UNFREEZE_P1| 
+
+Submission (Average all the predictions)
+```
+LB SCORE:        TBD
+SUBMISSION FLN:  EXP_352_crop(version 25/25)
+```
