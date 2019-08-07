@@ -252,7 +252,7 @@ Comments: This is trained mainly to use for transfer learning
 
 
 
-# EXP_735 (LB: TBD)
+# EXP_735 (LB: 0.793)
 Training on old data with image size ```352```, I am using weitts for transfer learning from the notebook ```EXP_730_352```, ```NB_EXP_730_352_UNFREEZE_P1```. Image were first cropped to remove all the black background using script TBD.
 
 ### EXP_735.ipynb
@@ -318,6 +318,6 @@ Summary:
 
 Submission (Average all the predictions)
 ```
-LB SCORE:        TBD
+LB SCORE:        0.793
 SUBMISSION FLN:  EXP_352_crop(version 25/25)
 ```
