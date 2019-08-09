@@ -9,7 +9,6 @@ Currently, Aravind technicians travel to these rural areas to capture images and
 
 In this synchronous Kernels-only competition, you'll build a machine learning model to speed up disease detection. You’ll work with thousands of images collected in rural areas to help identify diabetic retinopathy automatically. If successful, you will not only help to prevent lifelong blindness, but these models may be used to detect other sorts of diseases in the future, like glaucoma and macular degeneration.
 
-Get started today!
 
 
 ###  SETUP
