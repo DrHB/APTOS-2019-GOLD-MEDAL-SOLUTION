@@ -312,8 +312,8 @@ Summary:
 | ------------- | ------------- | ---------| --------| --------|
 | EXP_735-CV_0| 0.250133 | 0.205121 | 0.920307 | NB_EXP_735_CV_0_UNFREEZE_P1| 
 | EXP_735-CV_1| 0.135174 | 0.211053 | 0.921838 | NB_EXP_735_CV_1_UNFREEZE_P1| 
-| EXP_735-CV_2| 0.230097 | 0.223343 | 0.915626 | NB_EXP_735_CV_2_UNFREEZE_P1| 
-| EXP_735-CV_3| 0.176270 | 0.170685 | 0.932106 | NB_EXP_735_CV_3_UNFREEZE_P1| 
+| EXP_735-CV_2| 0.176270 | 0.170685 | 0.932106 | NB_EXP_735_CV_2_UNFREEZE_P1| 
+| EXP_735-CV_3| 0.230097 | 0.223343 | 0.915626 | NB_EXP_735_CV_3_UNFREEZE_P1| 
 | EXP_735-CV_4| 0.146527 | 0.205450 | 0.931362 | NB_EXP_735_CV_4_UNFREEZE_P1| 
 
 Submission (Average all the predictions)
@@ -321,3 +321,92 @@ Submission (Average all the predictions)
 LB SCORE:        0.793
 SUBMISSION FLN:  EXP_352_crop(version 25/25)
 ```
+# EXP_740 (LB: 0.793)
+In this experiment I combine OLD DATA with NEW DATA and do ```StratifiedKFold``` 5 Fold CV. Before combining I remove in NEW DATA all the duplicates and confusing label images (see in notebooks function ```get_ign_list```). Once combined images are preprocessed using ```PROCCES.ipynb```. This processing helps to remove extra black baground and center the images. Training is done in 3 phases with graudela increasing image sizes - ```224, 352, 448 ```
+
+Set up for all CV experimetns: 
+# IMG SIZE 224
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              128
+SZ:              224
+VALID:           StratifiedKFold split of combined data
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.01, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(10, 1e-2/7,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+                 fit_one_cycle(5,  1e-2/7/5, wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+```
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
+| ------------- | ------------- | ---------| --------| --------|
+| EXP_740-CV_0| 0.307050 | 0.342956 | 0.757189 | NB_EXP_740_CV_0_UNFREEZE_P2| 
+| EXP_740-CV_1| 0.302008 | 0.337840 | 0.756192 | NB_EXP_740_CV_1_UNFREEZE_P2| 
+| EXP_740-CV_2| 0.318744 | 0.368400 | 0.740174 | NB_EXP_740_CV_2_UNFREEZE_P2| 
+| EXP_740-CV_3| 0.306437 | 0.330385 | 0.772315 | NB_EXP_740_CV_3_UNFREEZE_P2| 
+| EXP_740-CV_4|  |  |  | NB_EXP_740_CV_4_UNFREEZE_P2| 
+
+# IMG SIZE 352
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              352
+SZ:              52
+VALID:           StratifiedKFold split of combined data
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.01, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(5, 1e-3/8,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+```
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
+| ------------- | ------------- | ---------| --------| --------|
+| EXP_740-CV_0| 0.234084 | 0.252582 | 0.821898 | NB_EXP_740_CV_0_352_UNFREEZE_P1| 
+| EXP_740-CV_1| 0.243329 | 0.245724 | 0.825637 | NB_EXP_740_CV_1_352_UNFREEZE_P1| 
+| EXP_740-CV_2| 0.249529 | 0.262216 | 0.814094 | NB_EXP_740_CV_2_352_UNFREEZE_P1| 
+| EXP_740-CV_3| 0.253743 | 0.242828 | 0.832840 | NB_EXP_740_CV_3_352_UNFREEZE_P1| 
+| EXP_740-CV_4|  |  |  |                         NB_EXP_740_CV_4_352_UNFREEZE_P1| 
+
+# IMG SIZE 448
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+BS:              448
+SZ:              32
+VALID:           StratifiedKFold split of combined data
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.01, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(5, 1e-3/4,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+```
+
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
+| ------------- | ------------- | ---------| --------| --------|
+| EXP_740-CV_0| 0.242496 | 0.246118 | 0.815219 | NB_EXP_740_CV_0_448_UNFREEZE_P1| 
+| EXP_740-CV_1| 0.231280 | 0.231828 | 0.822380 | NB_EXP_740_CV_1_448_UNFREEZE_P1| 
+|# EXP_740-CV_2| 0.249529 | 0.262216 | 0.814094 | NB_EXP_740_CV_2_448_UNFREEZE_P1| 
+| EXP_740-CV_3| 0.265476 | 0.231223 | 0.829990 | NB_EXP_740_CV_3_448_UNFREEZE_P1| 
+| EXP_740-CV_4|  |  |  |                         NB_EXP_740_CV_4_448_UNFREEZE_P1| 
