@@ -325,7 +325,7 @@ SUBMISSION FLN:  EXP_352_crop(version 25/25)
 In this experiment I combine OLD DATA with NEW DATA and do ```StratifiedKFold``` 5 Fold CV. Before combining I remove in NEW DATA all the duplicates and confusing label images (see in notebooks function ```get_ign_list```). Once combined images are preprocessed using ```PROCCES.ipynb```. This processing helps to remove extra black baground and center the images. Training is done in 3 phases with graudela increasing image sizes - ```224, 352, 448 ```
 
 Set up for all CV experimetns: 
-# IMG SIZE 224
+### IMG SIZE 224
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
@@ -354,7 +354,7 @@ TRAINING:        fit_one_cycle(10, 1e-2/7,   wd=1e-2, div_factor=25, pct_start=0
 | EXP_740-CV_3| 0.306437 | 0.330385 | 0.772315 | NB_EXP_740_CV_3_UNFREEZE_P2| 
 | EXP_740-CV_4|  |  |  | NB_EXP_740_CV_4_UNFREEZE_P2| 
 
-# IMG SIZE 352
+### IMG SIZE 352
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
@@ -382,7 +382,7 @@ TRAINING:        fit_one_cycle(5, 1e-3/8,   wd=1e-2, div_factor=25, pct_start=0.
 | EXP_740-CV_3| 0.253743 | 0.242828 | 0.832840 | NB_EXP_740_CV_3_352_UNFREEZE_P1| 
 | EXP_740-CV_4|  |  |  |                         NB_EXP_740_CV_4_352_UNFREEZE_P1| 
 
-# IMG SIZE 448
+### IMG SIZE 448
 ```
 MODEL:           EfficientNet-B5
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
