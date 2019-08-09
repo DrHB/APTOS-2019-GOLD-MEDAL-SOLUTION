@@ -321,7 +321,7 @@ Submission (Average all the predictions)
 LB SCORE:        0.793
 SUBMISSION FLN:  EXP_352_crop(version 25/25)
 ```
-# EXP_740 (LB: 0.793)
+# EXP_740 (LB: TBD)
 In this experiment I combine OLD DATA with NEW DATA and do ```StratifiedKFold``` 5 Fold CV. Before combining I remove in NEW DATA all the duplicates and confusing label images (see in notebooks function ```get_ign_list```). Once combined images are preprocessed using ```PROCCES.ipynb```. This processing helps to remove extra black baground and center the images. Training is done in 3 phases with graudela increasing image sizes - ```224, 352, 448 ```
 
 Set up for all CV experimetns: 
