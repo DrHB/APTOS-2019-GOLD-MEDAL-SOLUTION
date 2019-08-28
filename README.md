@@ -474,7 +474,7 @@ TFMS:            [flip(p=0.5),
                  zoom_crop(scale=(1.01, 1.35), do_rand=True))]
                  
 NORMALIZE:       IMAGENET
-TRAINING:        fit_one_cycle(5, 1e-3/8,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+TRAINING:        fit_one_cycle(5, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
 
 ```
 | Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
