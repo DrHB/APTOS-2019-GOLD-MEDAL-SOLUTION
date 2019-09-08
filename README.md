@@ -494,35 +494,4 @@ TRAINING:        fit_one_cycle(20, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3
 
 ### IMG SIZE 380
 
-```
-MODEL:           EfficientNet-B4
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
-BS:              380
-SZ:              64
-VALID:           StratifiedKFold split of combined data
 
-TFMS:            [flip(p=0.5), 
-                 flip_vert(True), 
-                 max_rotate(360), 
-                 max_lighting(0.1),
-                 p_lighting(0.5), 
-                 zoom_crop(scale=(1.01, 1.35), do_rand=True))]
-                 
-NORMALIZE:       IMAGENET
-TRAINING:        fit_one_cycle(5, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
-```
-
-| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
-| ------------- | ------------- | ---------| --------| --------|
-| EXP_740-CV_0| 0.209359 | 0.250411 | 0.823727 | NB_EXP_765_CV_0_380_UNFREEZE_P1| 
-| EXP_740-CV_1| 0.219378 | 0.244317 | 0.827123 | NB_EXP_765_CV_1_380_UNFREEZE_P1| 
-| EXP_740-CV_2| 0.213898 | 0.256796 | 0.822892 | NB_EXP_765_CV_2_380_UNFREEZE_P1| 
-| EXP_740-CV_3| 0.213808 | 0.235958 | 0.841296 | NB_EXP_765_CV_3_380_UNFREEZE_P1| 
-| EXP_740-CV_4| 0.228376 | 0.240436 | 0.837558 | NB_EXP_765_CV_4_380_UNFREEZE_P1| 
-
-
-```
-CV SCORE:        0.831
-LB SCORE:        0.816
-SUBMISSION FLN:  EXP_740(version 32/32)
-```
