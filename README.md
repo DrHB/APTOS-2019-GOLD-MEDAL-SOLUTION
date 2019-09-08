@@ -330,7 +330,7 @@ Submission (Average all the predictions)
 LB SCORE:        0.793
 SUBMISSION FLN:  EXP_352_crop(version 25/25)
 ```
-# EXP_740 (LB:  0.818)
+# EXP_740 (LB:  0.821, PB: 0.926)
 In this experiment I combine OLD DATA with NEW DATA and do ```StratifiedKFold``` 5 Fold CV. Before combining I remove in NEW DATA all the duplicates and confusing label images (see in notebooks function ```get_ign_list```). Moreover images are preprocessed using ```PROCCES.ipynb```. This processing helps to remove extra black baground and center the images. Training is done in 3 phases with graudela increasing image sizes - ```224, 352, 448 ```
 
 Set up for all CV experimetns: 
@@ -426,7 +426,41 @@ LB SCORE:        0.818
 SUBMISSION FLN:  EXP_740(version 32/32)
 ```
 
-# EXP_765 (LB:  0.811)
+### IMG SIZE 448
+```
+MODEL:           EfficientNet-B5
+NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+SZ:              456
+BS:              32
+VALID:           StratifiedKFold split of combined data
+
+TFMS:            [flip(p=0.5), 
+                 flip_vert(True), 
+                 max_rotate(360), 
+                 max_lighting(0.1),
+                 max_zoom(1.3),
+                 p_lighting(0.5), 
+                 zoom_crop(scale=(1.01, 1.35), do_rand=True))]
+                 
+NORMALIZE:       IMAGENET
+TRAINING:        fit_one_cycle(5, 1e-3/4,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
+
+```
+
+| Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
+| ------------- | ------------- | ---------| --------| --------|
+| EXP_740-CV_0| 0.232561 | 0.247312 | 0.813309 | NB_EXP_740_CV_0_448_UNFREEZE_P1_rs1| 
+| EXP_740-CV_1| 0.212561 | 0.240302 | 0.816792 | NB_EXP_740_CV_1_448_UNFREEZE_P1_rs1| 
+| EXP_740-CV_2| 0.219508 | 0.258105 | 0.805388 | NB_EXP_740_CV_2_448_UNFREEZE_P1_rs1| 
+| EXP_740-CV_3| 0.251555 | 0.237465 | 0.822387 | NB_EXP_740_CV_3_448_UNFREEZE_P1_rs1| 
+| EXP_740-CV_4| 0.235883 | 0.242834 | 0.819575 | NB_EXP_740_CV_4_448_UNFREEZE_P1_rs1| 
+
+```
+CV SCORE:        0.823
+LB SCORE:        0.821
+SUBMISSION FLN:  XP_740_448_rs(version 53/53)
+
+# EXP_765 (LB:  0.816: PB: 0.927)
 Exactly like EXP_740, except training is done in 2 phases with graudela increasing image sizes - ```224, 380 ``` with the model ```EfficientNet-B5```. I have used Lookahead with Radam as optimizers. See Notebooks for more details
 
 Set up for all CV experimetns: 
@@ -469,7 +503,6 @@ TFMS:            [flip(p=0.5),
                  flip_vert(True), 
                  max_rotate(360), 
                  max_lighting(0.1),
-                 max_zoom(1.3),
                  p_lighting(0.5), 
                  zoom_crop(scale=(1.01, 1.35), do_rand=True))]
                  
@@ -484,3 +517,9 @@ TRAINING:        fit_one_cycle(5, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)
 | EXP_740-CV_2| 0.213898 | 0.256796 | 0.822892 | NB_EXP_765_CV_2_380_UNFREEZE_P1| 
 | EXP_740-CV_3| 0.213808 | 0.235958 | 0.841296 | NB_EXP_765_CV_3_380_UNFREEZE_P1| 
 | EXP_740-CV_4| 0.228376 | 0.240436 | 0.837558 | NB_EXP_765_CV_4_380_UNFREEZE_P1| 
+
+
+CV SCORE:        0.831
+LB SCORE:        0.816
+SUBMISSION FLN:  EXP_740(version 32/32)
+```
