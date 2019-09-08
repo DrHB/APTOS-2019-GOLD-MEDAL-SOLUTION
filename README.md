@@ -465,6 +465,7 @@ Exactly like EXP_740, except training is done in 2 phases with graudela increasi
 
 Set up for all CV experimetns: 
 ### IMG SIZE 224
+
 ```
 MODEL:           EfficientNet-B4
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
@@ -481,8 +482,8 @@ TFMS:            [flip(p=0.5),
                  
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(20, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
-
 ```
+
 | Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
 | ------------- | ------------- | ---------| --------| --------|
 | EXP_740-CV_0| 0.284535 | 0.349184 | 0.754262 | NB_EXP_765_CV_0_UNFREEZE_P1| 
@@ -492,6 +493,7 @@ TRAINING:        fit_one_cycle(20, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3
 | EXP_740-CV_4| 0.282613 | 0.351242 | 0.756870 | NB_EXP_765_CV_4_UNFREEZE_P1| 
 
 ### IMG SIZE 380
+
 ```
 MODEL:           EfficientNet-B4
 NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
