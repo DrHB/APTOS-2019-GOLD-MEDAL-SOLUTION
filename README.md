@@ -459,12 +459,14 @@ TRAINING:        fit_one_cycle(5, 1e-3/4,   wd=1e-2, div_factor=25, pct_start=0.
 CV SCORE:        0.823
 LB SCORE:        0.821
 SUBMISSION FLN:  XP_740_448_rs(version 53/53)
+```
+
 
 # EXP_765 (LB:  0.816: PB: 0.927)
 Exactly like EXP_740, except training is done in 2 phases with graudela increasing image sizes - ```224, 380 ``` with the model ```EfficientNet-B5```. I have used Lookahead with Radam as optimizers. See Notebooks for more details
 
 Set up for all CV experimetns: 
-```
+
 ### IMG SIZE 224
 
 ```
