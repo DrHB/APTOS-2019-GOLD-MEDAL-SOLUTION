@@ -511,6 +511,7 @@ TFMS:            [flip(p=0.5),
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(5, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
 ```
+
 | Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
 | ------------- | ------------- | ---------| --------| --------|
 | EXP_740-CV_0| 0.209359 | 0.250411 | 0.823727 | NB_EXP_765_CV_0_380_UNFREEZE_P1| 
