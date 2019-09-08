@@ -510,8 +510,7 @@ TFMS:            [flip(p=0.5),
                  
 NORMALIZE:       IMAGENET
 TRAINING:        fit_one_cycle(5, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)-UNF
-
-
+```
 | Notebook Name  | Train Loss | Valid Loss | Quadratic Kappa | Weights |
 | ------------- | ------------- | ---------| --------| --------|
 | EXP_740-CV_0| 0.209359 | 0.250411 | 0.823727 | NB_EXP_765_CV_0_380_UNFREEZE_P1| 
@@ -520,6 +519,8 @@ TRAINING:        fit_one_cycle(5, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3)
 | EXP_740-CV_3| 0.213808 | 0.235958 | 0.841296 | NB_EXP_765_CV_3_380_UNFREEZE_P1| 
 | EXP_740-CV_4| 0.228376 | 0.240436 | 0.837558 | NB_EXP_765_CV_4_380_UNFREEZE_P1| 
 
+
+```
 CV SCORE:        0.831
 LB SCORE:        0.816
 SUBMISSION FLN:  EXP_740(version 32/32)
