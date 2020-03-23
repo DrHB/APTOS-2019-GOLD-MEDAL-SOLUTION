@@ -1,3 +1,6 @@
+# SOLUTION WRITE UP -
+https://www.kaggle.com/c/aptos2019-blindness-detection/discussion/108030
+
 # Kaggle-APTOS-2019-Blindness-Detection
 About Challange: 
 
@@ -14,7 +17,7 @@ In this synchronous Kernels-only competition, you'll build a machine learning mo
 ###  SETUP
 OLD DATA - Diabetic Retinopathy Detection (https://www.kaggle.com/c/diabetic-retinopathy-detection) <br/>
 NEW DATA - APTOS 2019 Blindness Detection (https://www.kaggle.com/c/aptos2019-blindness-detection/data)
-SOLUTION WRITE UP - https://www.kaggle.com/c/aptos2019-blindness-detection/discussion/108030
+
 
 # EXP_725 (LB: 0.808)
 I am gonna first pretrain model on OLD DATA and than fine tune on NEW DATA with 5-fold cross-validaion
