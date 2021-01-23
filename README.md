@@ -26,7 +26,7 @@ Important transformation here is zoom crop to the center from (0.9 to 1.4)
 ### EXP_725.ipynb
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           NEW DATA
@@ -58,7 +58,7 @@ Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits
 Set up for all CV experimetns: 
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           NEW DATA CV SPLIT
@@ -98,7 +98,7 @@ Same as ``` EXP_725``` but increased image size to 352 and added more robust cen
 ### EXP_725_352.ipynb
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              56
 SZ:              352
 VALID:           NEW DATA
@@ -130,7 +130,7 @@ Using weights ``` NB_EXP_725_UNFREEZE_P3 ```To train NEW DATA with 5 fold splits
 Set up for all CV experimetns: 
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              56
 SZ:              352
 VALID:           NEW DATA CV SPLIT
@@ -169,7 +169,7 @@ Same as ``` EXP_725``` added more robust center zoom crop (1.02 - 1.35x). Traine
 ### EXP_730.ipynb
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           NEW DATA
@@ -200,7 +200,7 @@ Using weights ``` NB_EXP_730_UNFREEZE_P1 ```To train NEW DATA with 5 fold splits
 Set up for all CV experimetns: 
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              56
 SZ:              352
 VALID:           NEW DATA CV SPLIT
@@ -238,7 +238,7 @@ Same as ``` EXP_730_BEN``` added more robust center zoom crop (1.02 - 1.35x) and
 ### EXP_730_352.ipynb
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              56
 SZ:              352
 VALID:           NEW DATA
@@ -271,7 +271,7 @@ Training on old data with image size ```352```, I am using weitts for transfer l
 ### EXP_735.ipynb
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              56
 SZ:              352
 VALID:           NEW DATA
@@ -302,7 +302,7 @@ Using weights ``` NB_EXP_735_UNFREEZE_P1 ```To train NEW DATA with 5 fold splits
 Set up for all CV experimetns: 
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              56
 SZ:              352
 VALID:           NEW DATA CV SPLIT
@@ -341,7 +341,7 @@ Set up for all CV experimetns:
 ### IMG SIZE 224
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           StratifiedKFold split of combined data
@@ -370,7 +370,7 @@ TRAINING:        fit_one_cycle(10, 1e-2/7,   wd=1e-2, div_factor=25, pct_start=0
 ### IMG SIZE 352
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              352
 SZ:              52
 VALID:           StratifiedKFold split of combined data
@@ -398,7 +398,7 @@ TRAINING:        fit_one_cycle(5, 1e-3/8,   wd=1e-2, div_factor=25, pct_start=0.
 ### IMG SIZE 448
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              448
 SZ:              32
 VALID:           StratifiedKFold split of combined data
@@ -433,7 +433,7 @@ SUBMISSION FLN:  EXP_740(version 32/32)
 ### IMG SIZE 448
 ```
 MODEL:           EfficientNet-B5
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 SZ:              456
 BS:              32
 VALID:           StratifiedKFold split of combined data
@@ -475,7 +475,7 @@ Set up for all CV experimetns:
 
 ```
 MODEL:           EfficientNet-B4
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              128
 SZ:              224
 VALID:           StratifiedKFold split of combined data
@@ -503,7 +503,7 @@ TRAINING:        fit_one_cycle(20, 1e-3,   wd=1e-2, div_factor=25, pct_start=0.3
 
 ```
 MODEL:           EfficientNet-B4
-NUM_CLASSES:     1 (5 classes but I am treatign this as a regression problem)
+NUM_CLASSES:     1 (5 classes but I am treating this as a regression problem)
 BS:              380
 SZ:              64
 VALID:           StratifiedKFold split of combined data
